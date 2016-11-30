@@ -3,13 +3,15 @@
 use strict;
 use warnings;
 use LWP::UserAgent;
+use File::Basename;
 
 sub upload {
   my ($file_to_upload) = @_; # only need 1 arg
   print "Uploading ".$file_to_upload."...\n";
   print "This might take a while...\n";
   my $ua = LWP::UserAgent->new;
-  my $endpoint = "https://transfer.sh/".$file_to_upload;
+  my $file_to_upload_basename = basename($file_to_upload);
+  my $endpoint = "https://transfer.sh/".$file_to_upload_basename;
   my $req = HTTP::Request->new(PUT => $endpoint);
   local $/ = undef;
   open(CONTENT, $file_to_upload) or die "$!";

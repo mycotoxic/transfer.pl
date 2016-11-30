@@ -5,8 +5,9 @@ Utterly pointless, you could just use curl, but whatever.
 You must have LWP::UserAgent available in yer perl.  
 Use your systems package manager or cpan or whatever.
 
-Currently it doesn't play nice with shit outside its cwd.  
-I'll fix that later.  
+Seems to play fine with paths and shit, thanks to
+a 3 line addition using ```File::BaseName```. Thank
+you based perl gods.
 
 example use:  
 ```
